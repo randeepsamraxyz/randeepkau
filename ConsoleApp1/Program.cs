@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Net.Http;
 
 namespace ConsoleApp1
 {
@@ -18,8 +19,9 @@ namespace ConsoleApp1
 
         static async void Download()
         {
-            await Network.Download();
-            Console.WriteLine("Download Complete");
+            HttpClient client = new HttpClient();
+            var data = await client.GetStringAsync("http://ibm.com");
+            Console.WriteLine(data);
         }
         class Network
         {
