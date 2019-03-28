@@ -11,21 +11,22 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Gagan rules the IT universe"); Download();
+            Console.WriteLine("Peter Rules the IT Universe!");
+            Download();
+            Console.ReadLine();
         }
 
-        static void Download()
+        static async void Download()
         {
-            Network.Download();
+            await Network.Download();
+            Console.WriteLine("Download Complete");
         }
-
-    }
-    class Network
-    {
-        static public Task Download()
+        class Network
         {
-            return Task.Run(() => Thread.Sleep(3000));
+            static public Task Download()
+            {
+                return Task.Run(() => Thread.Sleep(3000));
+            }
         }
     }
 }
-
